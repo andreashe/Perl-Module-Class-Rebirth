@@ -88,7 +88,7 @@ sub rebirth { # $object ($zombie)
   if ($@){die $@};
 
 
-  return $zombie;
+  return $target;
 }
 
 
