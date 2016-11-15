@@ -76,7 +76,7 @@ sub rebirth { # $object ($zombie)
 
   my @pkgs = _getUsedPackagesOfObject($zombie);
 
-  foreach my $p (@pkgs){ print $p;
+  foreach my $p (@pkgs){
     eval("require $p;");
     if ($@){die $@};
   }
@@ -128,8 +128,6 @@ sub _getUsedPackagesOfObject{
   foreach my $k (keys %$obj){
     my $value = $obj->{$k};
 
-    print ref $obj->{$k}."< \n";
-
     # walk down any hash to find more blessed objects
     if (ref $obj->{$k} eq 'HASH'){
 
@@ -167,7 +165,7 @@ sub _getUsedPackagesOfObject{
 
 =head1 NAME
 
-Class/Rebirth.pm - Class/Rebirth.pm
+Class::Rebirth.pm - Class::Rebirth.pm
 
 
 =head1 SYNOPSIS
@@ -209,10 +207,6 @@ normal classes but have no living methods.
 
 =head1 REQUIRES
 
-L<Class::Rebirth> 
-
-L<Class::Rebirth> 
-
 L<List::MoreUtils> 
 
 L<Data::Dumper> 
@@ -232,7 +226,7 @@ L<Carp>
 
 Takes a death object and and creates a living object of it.
 Such a zombie class looks like a normal class when you dump it.
-But it is not alive, means methods won't work. An Effect which
+But it is not alive, means methods won't work. An effect which
 happens by deserializing classes from a store (dumped data).
 
 
